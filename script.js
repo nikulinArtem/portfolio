@@ -35,10 +35,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 })
-
-$(function () {
-    $('.tabs tab-link').click(function(e){
-        e.preventDefault();
-        $(this).tab('show');
-    });
-})

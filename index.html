@@ -20,30 +20,6 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<?php
-//var_export($_POST);
-
-$userMessage = '';
-
-if ($_POST) {
-    $name = cleanInput($_POST['name']);
-    $email = cleanInput($_POST['mail']);
-    $tel = cleanInput($_POST['tel']);
-    $comment = cleanInput($_POST['comment']);
-
-    $myEmail = "itsacats@gmail.com";
-    $title = "Заявка с сайта от пользователя $name, телефон: $tel";
-    $messageContent = "ФИО:" . $name . ". E-mail: " . $email . ' Комментарий: '. $comment;
-
-    if (mail($myEmail, $title, $messageContent, "From: $email")) {
-        $userMessage = "Сообщение успешно отправлено";
-    } else {
-        $userMessage = "При отправке сообщения возникли ошибки";
-    }
-}
-function cleanInput(string $string): string {
-    return trim(htmlspecialchars($string));
-}?>
 <header class="pt-1 bg-dark" id="header">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark">
         <div class="container-fluid">
@@ -464,11 +440,5 @@ function cleanInput(string $string): string {
 </footer>
 
 <script src="script.js"></script>
-<script>
-    const userMessage = `<?=$userMessage?>`;
-    if (userMessage) {
-        alert(userMessage);
-    }
-</script>
 </body>
 </html>
